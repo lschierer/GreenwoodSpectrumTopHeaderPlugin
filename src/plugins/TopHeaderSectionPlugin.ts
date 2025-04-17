@@ -11,7 +11,7 @@ import { z } from 'zod';
 import type { Compilation, Resource, ResourcePlugin } from '@greenwood/cli';
 
 export const Config = z.object({
-  debug: z.boolean(),
+  debug: z.boolean().default(false),
   isDevelopment: z.boolean().optional().default(false),
   topLevelSections: z.string().array(),
   siteLogo: z.string().optional(),
@@ -26,6 +26,7 @@ class TopHeaderSectionResource implements Resource {
 
   constructor(compilation: Compilation, options: object) {
     this.compilation = compilation;
+    (options as Config).debug = false;
     const valid = Config.safeParse(options);
     if (!valid.success) {
       console.error(`TopHeader cannot parse its options: ${valid.error.message}`);

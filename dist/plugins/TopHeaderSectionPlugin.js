@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 import * as fs from 'node:fs';
 import { z } from 'zod';
 export const Config = z.object({
-    debug: z.boolean(),
+    debug: z.boolean().default(false),
     isDevelopment: z.boolean().optional().default(false),
     topLevelSections: z.string().array(),
     siteLogo: z.string().optional(),
@@ -18,6 +18,7 @@ class TopHeaderSectionResource {
     contentType;
     constructor(compilation, options) {
         this.compilation = compilation;
+        options.debug = false;
         const valid = Config.safeParse(options);
         if (!valid.success) {
             console.error(`TopHeader cannot parse its options: ${valid.error.message}`);
