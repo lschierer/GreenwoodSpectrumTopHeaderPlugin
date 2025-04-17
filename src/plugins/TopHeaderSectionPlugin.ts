@@ -26,7 +26,11 @@ class TopHeaderSectionResource implements Resource {
 
   constructor(compilation: Compilation, options: object) {
     this.compilation = compilation;
-    this.options = Config.parse(options);
+    const valid = Config.safeParse(options);
+    if (!valid.success) {
+      console.error(`TopHeader cannot parse its options: ${valid.error.message}`);
+    }
+    this.options = valid.data as Config;
 
     this.contentType = 'text/html';
   }
