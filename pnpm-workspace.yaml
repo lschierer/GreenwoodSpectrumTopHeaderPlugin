@@ -1,0 +1,6 @@
+onlyBuiltDependencies:
+  - esbuild
+
+overrides:
+  'siteLogo:': 'link:../../../Library/pnpm/global/5/node_modules/siteLogo:'
+  logo.svg,: link:../../../Library/pnpm/global/5/node_modules/path/to/logo.svg,

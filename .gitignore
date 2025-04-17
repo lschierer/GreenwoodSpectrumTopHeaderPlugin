@@ -1,0 +1,8 @@
+*DS_Store
+*.log
+node_modules/
+public/
+.greenwood/
+
+# Keep dist directory for Git dependencies
+!dist/
