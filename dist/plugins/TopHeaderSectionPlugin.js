@@ -21,7 +21,7 @@ class TopHeaderSectionResource {
         options.debug = false;
         const valid = Config.safeParse(options);
         if (!valid.success) {
-            console.error(`TopHeader cannot parse its options: ${valid.error.message}`);
+            console.error(`TopHeader cannot parse its options: ${valid.error.message}`, JSON.stringify(options));
         }
         this.options = valid.data;
         this.contentType = 'text/html';

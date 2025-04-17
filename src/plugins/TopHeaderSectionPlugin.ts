@@ -29,7 +29,10 @@ class TopHeaderSectionResource implements Resource {
     (options as Config).debug = false;
     const valid = Config.safeParse(options);
     if (!valid.success) {
-      console.error(`TopHeader cannot parse its options: ${valid.error.message}`);
+      console.error(
+        `TopHeader cannot parse its options: ${valid.error.message}`,
+        JSON.stringify(options)
+      );
     }
     this.options = valid.data as Config;
 
