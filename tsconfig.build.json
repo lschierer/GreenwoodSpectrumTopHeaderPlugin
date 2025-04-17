@@ -4,8 +4,6 @@
     "noEmit": false,
     "emitDeclarationOnly": false,
     "allowImportingTsExtensions": false,
-    "rewriteRelativeImportExtensions": true,
-    "moduleResolution": "NodeNext",
-    "module": "NodeNext"
+    "rewriteRelativeImportExtensions": true
   }
 }

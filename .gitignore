@@ -4,5 +4,8 @@ node_modules/
 public/
 .greenwood/
 
+tsconfig.build.tsbuildinfo 
+tsconfig.tsbuildinfo
+
 # Keep dist directory for Git dependencies
 !dist/
