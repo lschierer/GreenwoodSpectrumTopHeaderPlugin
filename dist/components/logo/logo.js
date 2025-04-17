@@ -1,5 +1,5 @@
+"use strict";
 const template = document.createElement("template");
-
 template.innerHTML = `
   <div class="my-logo">
     <style>
@@ -101,14 +101,13 @@ template.innerHTML = `
     </div>
   </div>
 `;
-
 class Logo extends HTMLElement {
-  connectedCallback() {
-    if (!this.shadowRoot) {
-      this.attachShadow({ mode: "open" });
-      this.shadowRoot.appendChild(template.content.cloneNode(true));
+    connectedCallback() {
+        if (!this.shadowRoot) {
+            this.attachShadow({ mode: "open" });
+            this.shadowRoot.appendChild(template.content.cloneNode(true));
+        }
     }
-  }
 }
-
 customElements.define("x-logo", Logo);
+//# sourceMappingURL=logo.js.map
