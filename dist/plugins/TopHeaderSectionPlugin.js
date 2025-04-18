@@ -8,9 +8,9 @@ import { z } from 'zod';
 export const Config = z.object({
     debug: z.boolean().default(false),
     isDevelopment: z.boolean().optional().default(false),
-    topLevelSections: z.string().array(),
-    siteLogo: z.string().optional(),
-    siteTitle: z.string(),
+    toplevelsections: z.string().array(),
+    sitelogo: z.string().optional(),
+    sitetitle: z.string(),
 });
 class TopHeaderSectionResource {
     compilation;
@@ -38,8 +38,8 @@ class TopHeaderSectionResource {
     }
     getNavSection = () => {
         return this.options
-            ? this.options.topLevelSections.length
-                ? this.options.topLevelSections
+            ? this.options.toplevelsections.length
+                ? this.options.toplevelsections
                     .map(section => {
                     return `
             <div class="navItem">
@@ -82,15 +82,15 @@ class TopHeaderSectionResource {
     `;
     };
     getSiteTitle = () => {
-        const siteTitle = this.options ? this.options.siteTitle : '';
+        const siteTitle = this.options ? this.options.sitetitle : '';
         if (this.options.debug) {
             console.log(`siteTitle is ${siteTitle}`);
         }
         const siteLogo = this.options
-            ? this.options.siteLogo
-                ? this.options.siteLogo.endsWith('.svg')
-                    ? this.getSvgLogo(this.options.siteLogo)
-                    : this.getImgLogo(this.options.siteLogo, siteTitle)
+            ? this.options.sitelogo
+                ? this.options.sitelogo.endsWith('.svg')
+                    ? this.getSvgLogo(this.options.sitelogo)
+                    : this.getImgLogo(this.options.sitelogo, siteTitle)
                 : ''
             : '';
         return `

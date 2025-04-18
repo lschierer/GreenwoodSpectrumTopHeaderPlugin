@@ -19,8 +19,8 @@ const config: Config = {
   plugins: [
     greenwoodPluginImportRaw(),
     TopHeaderSectionPlugin({
-      siteTitle: 'My Site',
-      topLevelSections: ['Home', 'About', 'Contact'],
+      sitetitle: 'My Site',
+      toplevelsections: ['Home', 'About', 'Contact'],
       debug: true,
     }),
     greenwoodPluginPostCss({

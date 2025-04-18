@@ -3,21 +3,21 @@ import type { ResourcePlugin } from '@greenwood/cli';
 export declare const Config: z.ZodObject<{
     debug: z.ZodDefault<z.ZodBoolean>;
     isDevelopment: z.ZodDefault<z.ZodOptional<z.ZodBoolean>>;
-    topLevelSections: z.ZodArray<z.ZodString, "many">;
-    siteLogo: z.ZodOptional<z.ZodString>;
-    siteTitle: z.ZodString;
+    toplevelsections: z.ZodArray<z.ZodString, "many">;
+    sitelogo: z.ZodOptional<z.ZodString>;
+    sitetitle: z.ZodString;
 }, "strip", z.ZodTypeAny, {
     debug: boolean;
     isDevelopment: boolean;
-    topLevelSections: string[];
-    siteTitle: string;
-    siteLogo?: string | undefined;
+    toplevelsections: string[];
+    sitetitle: string;
+    sitelogo?: string | undefined;
 }, {
-    topLevelSections: string[];
-    siteTitle: string;
+    toplevelsections: string[];
+    sitetitle: string;
     debug?: boolean | undefined;
     isDevelopment?: boolean | undefined;
-    siteLogo?: string | undefined;
+    sitelogo?: string | undefined;
 }>;
 export type Config = z.infer<typeof Config>;
 export declare const TopHeaderSectionPlugin: (options?: {}) => ResourcePlugin;
