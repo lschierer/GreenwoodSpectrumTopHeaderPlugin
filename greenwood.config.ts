@@ -21,7 +21,6 @@ const config: Config = {
     TopHeaderSectionPlugin({
       sitetitle: 'My Site',
       toplevelsections: ['Home', 'About', 'Contact'],
-      debug: true,
     }),
     greenwoodPluginPostCss({
       extendConfig: true,

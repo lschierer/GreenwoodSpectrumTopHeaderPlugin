@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import type { ResourcePlugin } from '@greenwood/cli';
 export declare const Config: z.ZodObject<{
-    debug: z.ZodDefault<z.ZodBoolean>;
+    debug: z.ZodBoolean;
     isDevelopment: z.ZodDefault<z.ZodOptional<z.ZodBoolean>>;
     toplevelsections: z.ZodArray<z.ZodString, "many">;
     sitelogo: z.ZodOptional<z.ZodString>;
@@ -13,9 +13,9 @@ export declare const Config: z.ZodObject<{
     sitetitle: string;
     sitelogo?: string | undefined;
 }, {
+    debug: boolean;
     toplevelsections: string[];
     sitetitle: string;
-    debug?: boolean | undefined;
     isDevelopment?: boolean | undefined;
     sitelogo?: string | undefined;
 }>;

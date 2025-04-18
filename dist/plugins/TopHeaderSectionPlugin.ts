@@ -11,7 +11,7 @@ import { z } from 'zod';
 import type { Compilation, Resource, ResourcePlugin } from '@greenwood/cli';
 
 export const Config = z.object({
-  debug: z.boolean().default(false),
+  debug: z.boolean(),
   isDevelopment: z.boolean().optional().default(false),
   toplevelsections: z.string().array(),
   sitelogo: z.string().optional(),
@@ -26,7 +26,9 @@ class TopHeaderSectionResource implements Resource {
 
   constructor(compilation: Compilation, options: object) {
     this.compilation = compilation;
-    (options as Config).debug = false;
+    if (!Object.keys(options).includes('debug')) {
+      (options as Config).debug = true;
+    }
     const valid = Config.safeParse(options);
     if (!valid.success) {
       console.error(
