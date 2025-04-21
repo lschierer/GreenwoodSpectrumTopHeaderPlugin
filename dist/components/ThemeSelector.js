@@ -71,7 +71,7 @@ export default class ThemeSelector extends HTMLElement {
         this.innerHTML = `
      <select
         class="spectrum-Picker spectrum-Picker--sizeM"
-        id="ThemeSelector"
+        id="theme-selector"
         label={Astro.locals.t('themeSelect.accessibleLabel')}
         value="auto"
         width="6.25em"
