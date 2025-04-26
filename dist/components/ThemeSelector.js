@@ -1,26 +1,4 @@
 import { ChangeTheme, ThemeSelection } from "./theme.js";
-import { z } from 'zod';
-import { Config } from "../plugins/TopHeaderSectionPlugin.js";
-const ThemeOptions = z.discriminatedUnion('label', [
-    z.object({
-        label: z.literal('dark'),
-        selected: z.boolean(),
-        value: z.literal('dark'),
-    }),
-    z.object({
-        label: z.literal('light'),
-        selected: z.boolean(),
-        value: z.literal('light'),
-    }),
-    z.object({
-        label: z.literal('auto'),
-        selected: z.boolean(),
-        value: z.literal('auto'),
-    }),
-]);
-const ThemeSelectorOptions = Config.partial().extend({
-    theme: z.union([ThemeOptions, ThemeOptions.array()]),
-});
 export default class ThemeSelector extends HTMLElement {
     options = {
         debug: false,

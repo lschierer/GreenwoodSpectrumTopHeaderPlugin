@@ -6,18 +6,9 @@ import type { Element } from 'hast';
 
 import { fileURLToPath } from 'node:url';
 import * as fs from 'node:fs';
-import { z } from 'zod';
 
 import type { Compilation, Resource, ResourcePlugin } from '@greenwood/cli';
-
-export const Config = z.object({
-  debug: z.boolean(),
-  isDevelopment: z.boolean().optional().default(false),
-  toplevelsections: z.string().array(),
-  sitelogo: z.string().optional(),
-  sitetitle: z.string(),
-});
-export type Config = z.infer<typeof Config>;
+import { Config } from '../schemas/ConfigSchemas.ts';
 
 class TopHeaderSectionResource implements Resource {
   private compilation: Compilation;

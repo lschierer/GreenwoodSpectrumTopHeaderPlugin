@@ -4,14 +4,7 @@ import rehypeStringify from 'rehype-stringify';
 import { visit } from 'unist-util-visit';
 import { fileURLToPath } from 'node:url';
 import * as fs from 'node:fs';
-import { z } from 'zod';
-export const Config = z.object({
-    debug: z.boolean(),
-    isDevelopment: z.boolean().optional().default(false),
-    toplevelsections: z.string().array(),
-    sitelogo: z.string().optional(),
-    sitetitle: z.string(),
-});
+import { Config } from "../schemas/ConfigSchemas.js";
 class TopHeaderSectionResource {
     compilation;
     options;
