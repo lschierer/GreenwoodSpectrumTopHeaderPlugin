@@ -1,5 +1,4 @@
 import { greenwoodPluginPostCss } from '@greenwood/plugin-postcss';
-import { greenwoodPluginImportRaw } from '@greenwood/plugin-import-raw';
 
 import type { Config } from '@greenwood/cli';
 
@@ -17,7 +16,6 @@ const config: Config = {
     plugins: ['rehype-autolink-headings', 'remark-alerts', 'remark-gfm', 'remark-rehype'],
   },
   plugins: [
-    greenwoodPluginImportRaw(),
     TopHeaderSectionPlugin({
       sitetitle: 'My Site',
       toplevelsections: ['Home', 'About', 'Contact'],
