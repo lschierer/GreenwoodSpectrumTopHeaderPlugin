@@ -12,7 +12,7 @@ class TopHeaderSectionResource {
     constructor(compilation, options) {
         this.compilation = compilation;
         if (!Object.keys(options).includes('debug')) {
-            options.debug = true;
+            options.debug = false;
         }
         const valid = Config.safeParse(options);
         if (!valid.success) {

@@ -18,7 +18,7 @@ class TopHeaderSectionResource implements Resource {
   constructor(compilation: Compilation, options: object) {
     this.compilation = compilation;
     if (!Object.keys(options).includes('debug')) {
-      (options as Config).debug = true;
+      (options as Config).debug = false;
     }
     const valid = Config.safeParse(options);
     if (!valid.success) {
