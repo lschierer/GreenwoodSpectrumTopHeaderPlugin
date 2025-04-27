@@ -12,13 +12,12 @@ export const ChangeTheme = (storedTheme: ThemeSelection) => {
   if (!storedTheme.localeCompare('light') || !storedTheme.localeCompare('dark')) {
     const scale = 'medium';
     document.querySelectorAll('sp-theme').forEach(sptheme => {
-      void Promise.all([
-        import(`@spectrum-web-components/theme/theme-${storedTheme}.js`),
-        import(`@spectrum-web-components/theme/scale-${scale}.js`),
-      ]).then(() => {
-        (sptheme as SPTheme).color = storedTheme as Theme;
-        (sptheme as SPTheme).scale = scale;
-      });
+      void Promise.all([import(`./theme-${storedTheme}.js`), import(`./scale-${scale}.js`)]).then(
+        () => {
+          (sptheme as SPTheme).color = storedTheme as Theme;
+          (sptheme as SPTheme).scale = scale;
+        }
+      );
     });
     document.querySelectorAll('html').forEach(html => {
       if (!html.classList.contains('spectrum')) {

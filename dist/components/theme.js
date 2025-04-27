@@ -13,10 +13,7 @@ export const ChangeTheme = (storedTheme) => {
     if (!storedTheme.localeCompare('light') || !storedTheme.localeCompare('dark')) {
         const scale = 'medium';
         document.querySelectorAll('sp-theme').forEach(sptheme => {
-            void Promise.all([
-                import(__rewriteRelativeImportExtension(`@spectrum-web-components/theme/theme-${storedTheme}.js`)),
-                import(__rewriteRelativeImportExtension(`@spectrum-web-components/theme/scale-${scale}.js`)),
-            ]).then(() => {
+            void Promise.all([import(__rewriteRelativeImportExtension(`./theme-${storedTheme}.js`)), import(__rewriteRelativeImportExtension(`./scale-${scale}.js`))]).then(() => {
                 sptheme.color = storedTheme;
                 sptheme.scale = scale;
             });
