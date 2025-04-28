@@ -171,7 +171,7 @@ class TopHeaderSectionResource implements Resource {
               type: 'element',
               tagName: 'script',
               properties: {
-                src: '/components/ThemeSelector.ts',
+                src: '/node_modules/topheader-plugin/dist/components/ThemeSelector.ts',
                 type: 'module',
               },
               children: [],
