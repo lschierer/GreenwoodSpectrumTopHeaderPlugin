@@ -5,7 +5,8 @@
   "description": "A plugin for Greenwood that adds a top header component",
   "type": "module",
   "files": [
-    "dist/"
+    "dist/",
+    "dist/**/*.css"
   ],
   "exports": {
     ".": {
@@ -24,9 +25,9 @@
     "dev": "pnpm run prepare && NODE_OPTIONS='--experimental-strip-types --import @greenwood/cli/register' greenwood develop",
     "start": "pnpm run prepare && NODE_OPTIONS='--import @greenwood/cli/register' greenwood develop",
     "build:pre": "pnpm run prepare && mkdir -pv ./node_modules/topheader-plugin/dist && rsync -rv dist/ ./node_modules/topheader-plugin/dist",
-    "build": "pnpm run build:pre && NODE_OPTIONS='--experimental-strip-types --import @greenwood/cli/register' greenwood build",
+    "build": "pnpm run build:pre && NODE_OPTIONS='--experimental-strip-types --import @greenwood/cli/register' greenwood build && pnpm build:css",
     "build:debug": "pnpm run build:pre && NODE_OPTIONS='--trace-warnings --inspect --experimental-strip-types --import @greenwood/cli/register' greenwood build",
-    "build:css": "rimraf -r ./dist/styles; mkdir -p ./dist/styles; pnpm tsx ./src/scripts/build-css.ts ./dist/styles",
+    "build:css": "rimraf -v ./dist/styles; mkdir -p ./dist/styles; pnpm tsx ./src/scripts/build-css.ts ./dist/styles",
     "serve": "NODE_OPTIONS='--experimental-strip-types --import @greenwood/cli/register' greenwood serve",
     "lint": "eslint . --ext .ts,.tsx",
     "lint:fix": "eslint . --ext .ts,.tsx --fix",
