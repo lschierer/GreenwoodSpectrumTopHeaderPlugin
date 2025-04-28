@@ -131,7 +131,7 @@ class TopHeaderSectionResource {
                         type: 'element',
                         tagName: 'link',
                         properties: {
-                            href: '/styles/TopHeader.css',
+                            href: '/node_modules/topheader-plugin/dist/styles/TopHeader.css',
                             rel: 'stylesheet',
                         },
                         children: [],
@@ -140,7 +140,7 @@ class TopHeaderSectionResource {
                         type: 'element',
                         tagName: 'link',
                         properties: {
-                            href: '/styles/SiteTitle.css',
+                            href: '/node_modules/topheader-plugin/dist/styles/SiteTitle.css',
                             rel: 'stylesheet',
                         },
                         children: [],

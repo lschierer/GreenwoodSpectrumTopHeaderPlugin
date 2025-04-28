@@ -7194,7 +7194,6 @@ a.spectrum-Button {
   --sl-color-accent: var(--spectrum-cyan-700);
   --sl-color-accent-low: var(--spectrum-cyan-400);
   --sl-color-bg: var(--spectrum-background-base-color);
-
   --sl-color-white: var(--spectrum-gray-50);
   --sl-color-gray-1: var(--spectrum-gray-200);
   --sl-color-gray-2: var(--spectrum-gray-300);
@@ -7208,25 +7207,7 @@ a.spectrum-Button {
   /* Layout variables that can be overridden by consuming projects */
   --theme-header-height: 100px;
   --theme-footer-height: 50px;
-  --theme-non-content-height: calc(
-    var(--theme-header-height) + var(--theme-footer-height)
-  );
-}
-
-/* I find I prefer less color range between high and low in dark mode */
-
-/* Light mode colors. */
-
-:root[data-theme="light"], [data-theme="light"] ::backdrop {
-  --sl-color-accent-high: var(--spectrum-cyan-1000);
-  --sl-color-accent-low: var(--spectrum-cyan-400);
-}
-
-/* Dark mode colors. */
-
-:root[data-theme="dark"], [data-theme="dark"] ::backdrop {
-  --sl-color-accent-high: var(--spectrum-cyan-900);
-  --sl-color-accent-low: var(--spectrum-cyan-500);
+  --theme-non-content-height: calc(var(--theme-header-height) + var(--theme-footer-height));
 }
 
 /* Apply root variables to theme and backdrop */
@@ -7234,6 +7215,22 @@ a.spectrum-Button {
 ::backdrop, sp-theme {
   background-color: var(--spectrum-background-base-color);
   color: var(--sl-color-black);
+}
+
+/* I find I prefer less color range between high and low in dark mode */
+
+/* Light mode colors. */
+
+:root[data-theme='light'], [data-theme='light'] ::backdrop {
+  --sl-color-accent-high: var(--spectrum-cyan-1000);
+  --sl-color-accent-low: var(--spectrum-cyan-400);
+}
+
+/* Dark mode colors. */
+
+:root[data-theme='dark'], [data-theme='dark'] ::backdrop {
+  --sl-color-accent-high: var(--spectrum-cyan-900);
+  --sl-color-accent-low: var(--spectrum-cyan-500);
 }
 
 *, *::before, *::after {
@@ -7252,8 +7249,8 @@ body {
 
   --mod-body-font-color: var(--sl-color-black);
   --mod-heading-font-color: var(--sl-color-accent);
-  --mod-heading-serif-font-family: "Inconsolata", monospace;
-  --mod-body-serif-font-family: "Inconsolata", monospace;
+  --mod-heading-serif-font-family: 'Inconsolata', monospace;
+  --mod-body-serif-font-family: 'Inconsolata', monospace;
   background-color: var(--spectrum-background-base-color);
   color: var(--sl-color-black);
   display: flex;
@@ -7309,8 +7306,7 @@ body div.main {
   height: 100%;
   min-height: 0;
   min-width: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden auto;
   padding-left: 1rem;
   width: 100%;
 }
@@ -7323,11 +7319,10 @@ main {
 }
 
 footer {
+
   --spectrum-detail-color: var(--sl-color-accent-low);
   --spectrum-accent-content-color-default: var(--sl-color-accent-low);
-
   background-color: var(--sl-color-accent-high);
-
   display: flex;
   flex-direction: row;
   flex-shrink: 0; /* Prevent footer from shrinking */

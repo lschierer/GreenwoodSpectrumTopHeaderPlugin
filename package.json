@@ -6,7 +6,7 @@
   "type": "module",
   "files": [
     "dist/",
-    "dist/**/*.css"
+    "**/*.css"
   ],
   "exports": {
     ".": {
@@ -20,20 +20,19 @@
   "main": "./dist/plugins/TopHeaderSectionPlugin.js",
   "types": "./dist/plugins/TopHeaderSectionPlugin.d.ts",
   "scripts": {
-    "prepare": "rm -rf dist/ && mkdir -p dist/ && rsync -rv --exclude 'pages/' src/ dist/ && tsc -p tsconfig.build.json",
+    "prepare": "rm -rf dist/ && mkdir -p dist/ && rsync -rv --exclude 'pages/' src/ dist/ && tsc -p tsconfig.build.json && tsx src/scripts/build-css.ts ./dist/styles",
     "prepublishOnly": "pnpm run prepare",
     "dev": "pnpm run prepare && NODE_OPTIONS='--experimental-strip-types --import @greenwood/cli/register' greenwood develop",
     "start": "pnpm run prepare && NODE_OPTIONS='--import @greenwood/cli/register' greenwood develop",
-    "build:pre": "pnpm run prepare && mkdir -pv ./node_modules/topheader-plugin/dist && rsync -rv dist/ ./node_modules/topheader-plugin/dist",
-    "build": "pnpm run build:pre && NODE_OPTIONS='--experimental-strip-types --import @greenwood/cli/register' greenwood build && pnpm build:css",
+    "build:pre": "pnpm run prepare && mkdir -pv ./node_modules/topheader-plugin/dist && rsync -rv --delete package.json dist ./node_modules/topheader-plugin/",
+    "build": "pnpm run build:pre && NODE_OPTIONS='--experimental-strip-types --import @greenwood/cli/register' greenwood build",
     "build:debug": "pnpm run build:pre && NODE_OPTIONS='--trace-warnings --inspect --experimental-strip-types --import @greenwood/cli/register' greenwood build",
     "build:css": "rimraf -v ./dist/styles; mkdir -p ./dist/styles; pnpm tsx ./src/scripts/build-css.ts ./dist/styles",
     "serve": "NODE_OPTIONS='--experimental-strip-types --import @greenwood/cli/register' greenwood serve",
     "lint": "eslint . --ext .ts,.tsx",
     "lint:fix": "eslint . --ext .ts,.tsx --fix",
     "format": "prettier --write \"**/*.{ts,tsx,js,json,css,md}\"",
-    "format:check": "prettier --check \"**/*.{ts,tsx,js,json,css,md}\"",
-    "link-local": "pnpm run prepare && pnpm link --global && cd node_modules && ln -sf ../dist topheader-plugin"
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,json,css,md}\""
   },
   "devDependencies": {
     "@eslint/css": "^0.7.0",

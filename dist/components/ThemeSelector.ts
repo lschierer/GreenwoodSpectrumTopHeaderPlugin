@@ -74,7 +74,7 @@ export default class ThemeSelector extends HTMLElement {
        }
      </select>
     `;
-    const select = this.querySelector('#ThemeSelector');
+    const select = this.querySelector('#theme-selector');
     if (select) {
       select.addEventListener('change', this.ThemeChangedCallback);
     } else {

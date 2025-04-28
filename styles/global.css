@@ -1,15 +1,15 @@
-@import "@spectrum-css/tokens";
-@import "@spectrum-css/typography";
-@import "@spectrum-css/icon";
-@import "@spectrum-css/page";
-@import "@spectrum-css/link";
-@import "@spectrum-css/actionbutton";
-@import "@spectrum-css/button";
-@import "@spectrum-css/picker";
-@import "@spectrum-css/menu";
-@import "remark-alerts/styles/github-base.css";
-@import "remark-alerts/styles/github-colors-light.css";
-@import "remark-alerts/styles/github-colors-dark-class.css";
+@import url('@spectrum-css/tokens');
+@import url('@spectrum-css/typography');
+@import url('@spectrum-css/icon');
+@import url('@spectrum-css/page');
+@import url('@spectrum-css/link');
+@import url('@spectrum-css/actionbutton');
+@import url('@spectrum-css/button');
+@import url('@spectrum-css/picker');
+@import url('@spectrum-css/menu');
+@import url('remark-alerts/styles/github-base.css');
+@import url('remark-alerts/styles/github-colors-light.css');
+@import url('remark-alerts/styles/github-colors-dark-class.css');
 
 /* Default Colors */
 :root {
@@ -20,7 +20,6 @@
   --sl-color-accent: var(--spectrum-cyan-700);
   --sl-color-accent-low: var(--spectrum-cyan-400);
   --sl-color-bg: var(--spectrum-background-base-color);
-
   --sl-color-white: var(--spectrum-gray-50);
   --sl-color-gray-1: var(--spectrum-gray-200);
   --sl-color-gray-2: var(--spectrum-gray-300);
@@ -34,24 +33,7 @@
   /* Layout variables that can be overridden by consuming projects */
   --theme-header-height: 100px;
   --theme-footer-height: 50px;
-  --theme-non-content-height: calc(
-    var(--theme-header-height) + var(--theme-footer-height)
-  );
-}
-
-/* I find I prefer less color range between high and low in dark mode */
-
-/* Light mode colors. */
-:root[data-theme="light"],
-[data-theme="light"] ::backdrop {
-  --sl-color-accent-high: var(--spectrum-cyan-1000);
-  --sl-color-accent-low: var(--spectrum-cyan-400);
-}
-/* Dark mode colors. */
-:root[data-theme="dark"],
-[data-theme="dark"] ::backdrop {
-  --sl-color-accent-high: var(--spectrum-cyan-900);
-  --sl-color-accent-low: var(--spectrum-cyan-500);
+  --theme-non-content-height: calc(var(--theme-header-height) + var(--theme-footer-height));
 }
 
 /* Apply root variables to theme and backdrop */
@@ -59,6 +41,22 @@
 sp-theme {
   background-color: var(--spectrum-background-base-color);
   color: var(--sl-color-black);
+}
+
+/* I find I prefer less color range between high and low in dark mode */
+
+/* Light mode colors. */
+:root[data-theme='light'],
+[data-theme='light'] ::backdrop {
+  --sl-color-accent-high: var(--spectrum-cyan-1000);
+  --sl-color-accent-low: var(--spectrum-cyan-400);
+}
+
+/* Dark mode colors. */
+:root[data-theme='dark'],
+[data-theme='dark'] ::backdrop {
+  --sl-color-accent-high: var(--spectrum-cyan-900);
+  --sl-color-accent-low: var(--spectrum-cyan-500);
 }
 
 *,
@@ -89,8 +87,8 @@ body {
 
   --mod-body-font-color: var(--sl-color-black);
   --mod-heading-font-color: var(--sl-color-accent);
-  --mod-heading-serif-font-family: "Inconsolata", monospace;
-  --mod-body-serif-font-family: "Inconsolata", monospace;
+  --mod-heading-serif-font-family: 'Inconsolata', monospace;
+  --mod-body-serif-font-family: 'Inconsolata', monospace;
 }
 
 sp-split-view {
@@ -135,8 +133,7 @@ body div.main {
   box-sizing: border-box;
   width: 100%;
   padding-left: 1rem;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden auto;
   height: 100%;
   background-color: var(--spectrum-background-base-color);
 }
@@ -152,12 +149,11 @@ footer {
   flex-shrink: 0; /* Prevent footer from shrinking */
   width: 100%;
   margin-top: auto; /* Push footer to bottom when content is short */
-
   background-color: var(--sl-color-accent-high);
-
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
   --spectrum-detail-color: var(--sl-color-accent-low);
   --spectrum-accent-content-color-default: var(--sl-color-accent-low);
 }
@@ -176,6 +172,7 @@ sp-split-view div.nav {
   overflow-y: auto;
   background-color: var(--sl-color-gray-2);
 }
+
 /* Title section styling - more specific to avoid conflicts */
 sp-theme > div.title-section {
   background-color: var(--spectrum-background-base-color);

@@ -153,7 +153,7 @@ class TopHeaderSectionResource implements Resource {
               type: 'element',
               tagName: 'link',
               properties: {
-                href: '@topheader-plugin/styles/TopHeader.css',
+                href: '/node_modules/topheader-plugin/dist/styles/TopHeader.css',
                 rel: 'stylesheet',
               },
               children: [],
@@ -162,7 +162,7 @@ class TopHeaderSectionResource implements Resource {
               type: 'element',
               tagName: 'link',
               properties: {
-                href: 'topheader-plugin/styles/SiteTitle.css',
+                href: '/node_modules/topheader-plugin/dist/styles/SiteTitle.css',
                 rel: 'stylesheet',
               },
               children: [],

@@ -23,7 +23,7 @@ function parseArgs(argv) {
     };
 }
 async function buildCSS({ outDir, minify }) {
-    const stylesDir = path.resolve('src/styles');
+    const stylesDir = path.resolve('styles');
     const outputDir = path.resolve(outDir);
     try {
         const result = await stylelint.lint({

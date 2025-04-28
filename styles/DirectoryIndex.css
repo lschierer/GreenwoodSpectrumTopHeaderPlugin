@@ -10,8 +10,7 @@ div.cardBox {
 
 div.offsetter {
   width: 100%;
-  grid-column-start: 3;
-  grid-column-end: span 2;
+  grid-column: 3 / span 2;
   grid-row-end: span 1;
 }
 
@@ -20,6 +19,7 @@ sp-card {
   width: fit-content;
   height: 50%;
 }
+
 div.cardItem {
   margin: auto;
   width: 100%;

@@ -33,7 +33,7 @@ function parseArgs(argv: string[]): CliArgs {
 }
 
 async function buildCSS({ outDir, minify }: CliArgs) {
-  const stylesDir = path.resolve('src/styles');
+  const stylesDir = path.resolve('styles');
   const outputDir = path.resolve(outDir);
 
   try {
