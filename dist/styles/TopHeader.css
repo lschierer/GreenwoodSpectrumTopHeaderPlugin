@@ -1,8 +1,14 @@
-.header {
+div.topHeader {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.topHeader .header {
   align-items: center;
   background-color: var(--sl-color-accent-high);
   display: grid;
-  gap: var(--sl-nav-gap);
   grid-auto-rows: auto;
   grid-template-columns: repeat(7, 1fr);
 }
@@ -45,8 +51,8 @@ div.site-title-section {
 }
 
 .social-icons::after {
-  border-inline-end: 1px solid var(--sl-color-gray-5);
-  content: '';
+  border-inline-end: 1px solid var(--spectrum-gray-600);
+  content: "";
   height: 2rem;
 }
 

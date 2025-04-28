@@ -1,5 +1,11 @@
-.header {
-  gap: var(--sl-nav-gap);
+div.topHeader {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.topHeader .header {
   align-items: center;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -46,9 +52,9 @@ div.site-title-section {
 }
 
 .social-icons::after {
-  content: '';
+  content: "";
   height: 2rem;
-  border-inline-end: 1px solid var(--sl-color-gray-5);
+  border-inline-end: 1px solid var(--spectrum-gray-600);
 }
 
 theme-select select#theme-selector {
